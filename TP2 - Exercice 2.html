@@ -1,45 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP2 Exercice 2</title>
-</head>
-<body>
-    <div id='color'>
-        <div v-if='isWhite' v-bind:class="{blanc: isWhite}">Blanc</div>
-        <div v-else >Noir</div>
-        <div>Message calculé {{myText}}</div>
-        <button v-on:click="inverser">Changer la couleur</button>
-    </div>
-    <script>
-        var vm = new Vue({
-            el : '#color',
-            data :{
-                isWhite: false,
-            },
-            methods : {
-                inverser(){
-                    this.isWhite = !this.isWhite
-                },
-            },
-            computed:{
-                myText : function(){
-                    if (this.isWhite){
-                        return"Blanc";
-                    }else{
-                        return"Noir";
-                    }
-                },
-            },
-        })
-    </script>
-</body>
-<style>
-    .blanc{
-        background-color: #000000;
-        color : white;
-    }
-</style>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TP2 Exercice 2</title>
+    </head>
+    <body>
+        <div id='color'>
+            <div v-if='isWhite' v-bind:class="{blanc: isWhite}">Blanc</div>
+            <div v-else >Noir</div>
+            <div>Message calculé {{myText}}</div>
+            <button v-on:click="inverser">Changer la couleur</button>
+        </div>
+        <script src="TP2 - Exercice 2.js"></script>
+    </body>
+    <style>
+        .blanc{
+            background-color: #000000;
+            color : white;
+        }
+    </style>
 </html>

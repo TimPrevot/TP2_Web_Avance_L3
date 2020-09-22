@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP-2 Exercice 1</title>
-</head>
-<body>
-    <div id="age">
-        <p>Mon âge est {{age}}</p>
-        <!--Notre age part donc de 20 qui est sa valeur d'origine. Ensuite on y ajoute 1 toutes les secondes. -->
-    </div>
-    <script>
-        var vm = new Vue({
-            el: '#age',
-            data :{
-                age : 20
-            },
-        })
-        function oneMore(){
-            vm.age += 1
-        }
-        var intervalID = window.setInterval(oneMore,1000)
-    </script>
-</body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TP-2 Exercice 1</title>
+    </head>
+    <body>
+        <div id="age">
+            <p>Mon âge est {{age}}</p>
+            <!--Notre age part donc de 20 qui est sa valeur d'origine. Ensuite on y ajoute 1 toutes les secondes. -->
+        </div>
+        <script src="TP2 - Exercice 1.js"></script>
+    </body>
 </html>
