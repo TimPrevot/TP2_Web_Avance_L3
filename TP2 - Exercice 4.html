@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 Exercice 4</title>
+</head>
+<body>
+    <div id="liste">
+        <article v-for="(item, index) in cours" :key="index">
+            {{item}}
+        </article>
+        <div>
+            <input v-model="cour">
+            <button v-on:click="ajouter(cour)">Ajouter un cours</button>
+        </div>
+        <div>
+            <select v-model="modif" @change="recupIndex($event, $event.target.selectedIndex)">
+                <option v-for="(item, index) in cours" :key="index">
+                    {{item}}
+                </option>
+            </select>
+            <input v-model="modif">
+            <button v-on:click="modifier(modif,selectedIndex)">Modifier</button>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#liste",
+            data :{
+                cours:['Algorithmique', 'Structures de données', 'Programmation Web', 'Web Avancé', 'Frond-end Web Development', 'Asynchronous Event-Driven Programming with Node.js'],
+                cour:'',
+                modif:'',
+                selectedIndex: 0,
+            },
+            methods : {
+                ajouter : function(cour){
+                    this.cours.push(cour)
+                },
+                recupIndex: function(event, selectedIndex) {
+                    console.log(event, selectedIndex);
+                    this.selectedIndex = selectedIndex;
+                },
+                modifier : function(modif,index){
+                    Vue.set(this.cours,index,modif)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

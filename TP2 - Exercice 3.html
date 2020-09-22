@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 Exercice 3</title>
+</head>
+<style>
+    img{
+        width: 25px;
+        height: 25px;
+    }
+</style>
+<body>
+    <div id="liste">
+        <div>{{CurrentFruit}}</div>
+        <ul>
+            <li v-for="(item, index) in fruits" :key="item.text" v-on:click="changeCurrentFruit(item.text)">
+                <img src="close.png" alt="" v-on:click="removefruit(index)">
+                <p v-if="fruitgras(item.text)"><b>{{ item.text }}</b></p>
+                <p v-else>{{ item.text }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#liste",
+            data :{
+                fruits:[
+                    {text:'Pomme'},
+                    {text:'Orange'},
+                    {text:'Fraise'},
+                    {text:'Melon'},
+                    {text:'Cerise'},
+                ],
+                CurrentFruit:'Pomme',
+            },
+            methods :{
+                changeCurrentFruit : function(fruit){
+                    this.CurrentFruit = fruit
+                },
+                fruitgras : function(fruit){
+                    if (fruit == this.CurrentFruit){
+                        return true
+                    }else{
+                        return false
+                    }
+                },
+                removefruit : function(index){
+                    this.fruits.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
