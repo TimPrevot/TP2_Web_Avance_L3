@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> TP2 Exercice 5 </title>
+    </head>
+    <style>
+        #ajoutertache{
+            text-align: center;
+        }
+        img{
+            max-width: 15px;
+            max-height: 15px;
+        }
+    </style>
+    <body>
+        <div id="liste">
+            <div id="ajoutertache">
+                <h1>Ajouter une tâche</h1>
+                <input
+                    v-model="defaultTaskTitle"
+                    placeholder="Ajouter une tâche"
+                >
+                <input
+                    v-model="contenu"
+                    placeholder="Ajouter un contenu"
+                >
+                <button v-on:click="addTask(this)"> Ajouter la tâche </button>
+            </div>
+            <article v-for="(task, index) in tasks" :key="task.title">
+                <div>
+                    <img v-on:click="deleteTask(index)" src="close.png" alt="delete_icon">
+                    <h2><b> {{ task.title }} </b></h2>
+                    <div> {{ task.contenu }} </div>
+                    <input type="checkbox" id="checkbox" v-model="task.done">
+                    <label for="checkbox"></label>
+                </div>
+            </article>
+        </div>
+        <script src="Exercice5.js"></script>
+    </body>
+</html>
